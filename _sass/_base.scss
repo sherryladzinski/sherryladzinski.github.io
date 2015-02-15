@@ -25,10 +25,22 @@ dl, dd, ol, ul, figure {
 }
 
 .indexdiff {
-height: 100%;
  background: url("../images/profile2.jpg") no-repeat center center fixed;   
  -webkit-background-size: cover;
  float: bottom;
+}
+
+.page-content.indexdiff {
+    width: 96%;
+    position: fixed;
+    background: black;
+    opacity: .4;
+    padding: 2%;
+    font-family: Helvetica;
+    font-size: 25px;
+    bottom: 0;
+    color: white;
+    text-align: center;
 }
 
 

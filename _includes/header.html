@@ -1,8 +1,10 @@
 <header class="site-header">
 
   <div class="wrapper">
-
-    <a class="site-title" href="{{ site.baseurl }}/">{{ site.title }}</a>
+    
+    <a class="site-title" href="{{ site.baseurl }}/">{{ site.title }}</a><br>
+    
+  
 
 
 
@@ -17,10 +19,6 @@
 
       
 
-       <input type="checkbox" id="hamburger"/>
-    <label class="menuicon" for="hamburger">
-      <span></span>
-    </label>
     <div class="menu">
       <div class="trigger">
         {% for page in site.pages %}
@@ -28,7 +26,9 @@
           <a class="page-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
           {% endif %}
         {% endfor %}
-        <a class="page-link" href="/contact/">CONTACT</a>
+        <a class="page-link" href="https://drive.google.com/file/d/0ByS420my4A69bE9xX1c1Njg3SGs/view?usp=sharing">RESUME</a>
+        <a class="page-link" href="#">CONTACT</a>
+
       </div>
     </div>
 
