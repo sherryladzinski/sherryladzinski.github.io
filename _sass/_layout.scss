@@ -3,7 +3,6 @@
  */
 .site-header {
     border-top: 5px solid $grey-color-dark;
-    border-bottom: 1px solid $grey-color-light;
     min-height: 56px;
 
     // Positioning context for the mobile navigation icon
@@ -16,6 +15,7 @@
     letter-spacing: -1px;
     margin-bottom: 0;
     float: left;
+    padding: 25px;
 
     &,
     &:visited {
@@ -37,7 +37,7 @@
 
         // Gaps between nav items, but not on the first one
         &:not(:first-child) {
-            margin-left: 20px;
+            margin-left: 0px;
         }
     }
 
@@ -71,7 +71,7 @@
 
         .trigger {
             clear: both;
-            display: none;
+            display: block;
         }
 
         &:hover .trigger {
@@ -92,7 +92,6 @@
  * Site footer
  */
 .site-footer {
-    border-top: 1px solid $grey-color-light;
     padding: $spacing-unit 0;
 }
 
@@ -163,6 +162,8 @@
  */
 .page-content {
     padding: $spacing-unit 0;
+    width: 900px;
+    margin: 0 auto;
 }
 
 .page-heading {
@@ -233,4 +234,144 @@
             font-size: 18px;
         }
     }
+}
+
+
+/* Configuration Parameters */
+$lineWidth: 5px;
+$lineLength: 25px;
+$baseMargin: 8px;
+$animationDuration: .2s;
+
+html {
+  background: #CCC;
+}
+
+html,body {
+  margin: 0; 
+  padding: 0; 
+  height: 100%
+}
+
+#hamburger {
+  display: none;
+}
+
+.trigger {
+    height: 100%;
+}
+
+
+
+.menu {
+  height: 100%;
+  padding-top: 30px;
+  text-align: center;
+  display: block;
+  background-color: #AAA;
+  width: 0;
+  -webkit-transition-duration: $animationDuration;
+  -moz-transition-duration: $animationDuration;
+  -ms-transition-duration: $animationDuration;
+  -o-transition-duration: $animationDuration;
+  transition-duration: $animationDuration;
+  -webkit-transition-delay: $animationDuration;
+  -moz-transition-delay: $animationDuration;
+  -ms-transition-delay: $animationDuration;
+  -o-transition-delay: $animationDuration;
+  transition-delay: $animationDuration;
+}
+
+
+
+.menu a {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+}
+
+
+.menuicon {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: block;
+  cursor: pointer;
+  height: $baseMargin*2 + $lineWidth;
+  width: $lineLength;
+  span {
+    display: block;
+    top: $baseMargin;
+    width: $lineLength;
+    height: $lineWidth;
+    background-color: #000;
+    position: relative;
+    -webkit-transition-duration: 0;
+    -moz-transition-duration: 0;
+    -ms-transition-duration: 0;
+    -o-transition-duration: 0;
+    transition-duration: 0;  
+    -webkit-transition-delay: $animationDuration;
+    -moz-transition-delay: $animationDuration;
+    -ms-transition-delay: $animationDuration;
+    -o-transition-delay: $animationDuration;
+    transition-delay: $animationDuration;
+    &::after, &::before {
+      display: block;
+      content: '';
+      position: absolute;
+      width: $lineLength;
+      height: $lineWidth;
+      background-color: #000;
+      -webkit-transition-property: margin, -webkit-transform;
+      -webkit-transition-duration: $animationDuration;
+      -moz-transition-duration: $animationDuration;
+      -ms-transition-duration: $animationDuration;
+      -o-transition-duration: $animationDuration;
+      transition-duration: $animationDuration;
+      -webkit-transition-delay: $animationDuration, 0;
+      -moz-transition-delay: $animationDuration, 0;
+      -ms-transition-delay: $animationDuration, 0;
+      -o-transition-delay: $animationDuration, 0;
+      transition-delay: $animationDuration, 0;
+    }
+    &::before {
+      margin-top: -$baseMargin;
+    }
+    &::after {
+      margin-top: $baseMargin;
+    }
+  }
+}
+
+#hamburger:checked ~ .menu {
+  width: 250px;
+}
+
+#hamburger:checked ~ .menuicon {
+  span {
+    background-color: rgba(0,0,0,0);
+    &::before, &::after {
+      margin-top: 0px;
+      -webkit-transition-delay: 0, $animationDuration;
+      -moz-transition-delay: 0, $animationDuration;
+      -ms-transition-delay: 0, $animationDuration;
+      -o-transition-delay: 0, $animationDuration;
+      transition-delay: 0, $animationDuration;
+    }
+    &::before {
+      -webkit-transform: rotate(45deg);
+      -moz-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      -o-transform: rotate(45deg);
+      transform: rotate(45deg);
+    }
+    &::after {
+      -webkit-transform: rotate(-45deg);
+      -moz-transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg);
+      -o-transform: rotate(-45deg);
+      transform: rotate(-45deg);
+    }
+  }
 }
